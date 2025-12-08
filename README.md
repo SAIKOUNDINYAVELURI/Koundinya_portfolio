@@ -3,7 +3,7 @@
 1. **Clone this repository**
    ```bash
    git clone <repository-url>
-   cd Portfolio
+   cd Koundinya_Portfolio
    ```
 
 2. **Install dependencies**
