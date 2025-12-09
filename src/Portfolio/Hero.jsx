@@ -53,12 +53,14 @@ const Hero = () => {
   </Button>
 
   <Button
-    className="resume-btn"
-    href={resume}
-    download
-  >
-    Download Resume
-  </Button>
+  className="resume-btn"
+  href={resume}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Download Resume
+</Button>
+
 </div>
 
 
