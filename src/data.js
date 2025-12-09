@@ -2,7 +2,7 @@ export const heroData = {
   name: "Sai Koundinya Veluri",
   role: "Full Stack Developer | Data Science Enthusiast",
   description:
-    "I build AI-driven, scalable, and high-performance applications using clean architecture and modern web technologies.",
+    "I craft scalable, intelligent web and AI-driven applications with Node.js, React, FastAPI, Data Science, and Machine Learning — turning complex data into high-performance, real-world solutions.",
      resume: "/Koundinya_Resume.pdf", 
 
   social: {
