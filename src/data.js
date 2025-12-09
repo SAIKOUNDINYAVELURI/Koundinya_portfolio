@@ -3,7 +3,7 @@ export const heroData = {
   role: "Full Stack Developer | Data Science Enthusiast",
   description:
     "I craft scalable, intelligent full-stack and AI-driven applications using leading-edge technologies — transforming complex data into high-performance, real-world solutions.",
-     resume: "/Koundinya_Resume.pdf", 
+     resume: "https://drive.google.com/file/d/1Xy_xtLeV5AfYX-9V18bz9-zfaW6W1VTr/view?usp=sharing", 
 
   social: {
     github: "https://github.com/SAIKOUNDINYAVELURI",
