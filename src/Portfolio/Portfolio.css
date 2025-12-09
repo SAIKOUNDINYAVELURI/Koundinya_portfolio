@@ -91,8 +91,8 @@ a {
   padding: 14px 32px;
 
   background: rgba(10, 14, 26, 0.55);
-  backdrop-filter: blur(22px) saturate(180%);
   -webkit-backdrop-filter: blur(22px) saturate(180%);
+  backdrop-filter: blur(22px) saturate(180%);
 
   border-radius: 22px;
   border: 1px solid rgba(78, 168, 255, 0.15);
