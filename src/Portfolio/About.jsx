@@ -3,7 +3,7 @@ import { Fade } from "@mui/material";
 import "./portfolio.css";
 
 const About = () => {
-  const { personalInfo, education, certifications } = aboutData;
+  const { personalInfo, education, certifications, achievements } = aboutData; // added achievements
 
   return (
     <section id="about" className="section-wrapper">
@@ -11,7 +11,6 @@ const About = () => {
 
       <div className="about-grid">
 
-        
         <Fade in={true} timeout={600}>
           <div className="about-card">
             <h3 className="about-card-title">Personal Information</h3>
@@ -24,7 +23,6 @@ const About = () => {
           </div>
         </Fade>
 
-      
         <Fade in={true} timeout={800}>
           <div className="about-card">
             <h3 className="about-card-title">Education</h3>
@@ -40,7 +38,6 @@ const About = () => {
           </div>
         </Fade>
 
-       
         <Fade in={true} timeout={1000}>
           <div className="about-card">
             <h3 className="about-card-title">Certifications & Internship</h3>
@@ -50,6 +47,22 @@ const About = () => {
                   <strong>{cert.name}</strong> <br />
                   {cert.org} <br />
                   <span className="about-year">{cert.year}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Fade>
+
+        {/* DYNAMIC ACHIEVEMENTS CARD */}
+        <Fade in={true} timeout={1200}>
+          <div className="about-card">
+            <h3 className="about-card-title">Achievements</h3>
+            <ul className="about-list">
+              {achievements.map((ach, index) => (
+                <li key={index}>
+                  <strong>{ach.title}</strong><br />
+                  {ach.description} <br />
+                  {ach.organizer && <span className="about-year">Conducted by: {ach.organizer}</span>}
                 </li>
               ))}
             </ul>
