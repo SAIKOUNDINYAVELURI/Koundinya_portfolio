@@ -27,6 +27,7 @@ const Projects = () => {
                   variant="outlined"
                   href={project.link}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="project-button"
                 >
                   View Project

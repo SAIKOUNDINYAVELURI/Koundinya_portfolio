@@ -1072,3 +1072,11 @@ a {
     min-width: 140px;
   }
 }
+.project-card::before,
+.project-card::after {
+  pointer-events: none;
+}
+.project-button {
+  position: relative;
+  z-index: 2;
+}
