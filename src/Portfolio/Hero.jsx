@@ -15,6 +15,7 @@ const Hero = () => {
 
   return (
     <section id="home" className="hero-wrapper">
+
       <Fade in={true} timeout={1000}>
         <Box className="hero-container">
           

@@ -13,48 +13,70 @@ export const heroData = {
 };
 export const projectsData = [
   {
+    title: "UniqueCollections (E-Commerce Platform)",
+    description:
+      "Full-stack e-commerce platform with user authentication, product management, shopping cart, order processing, and admin analytics dashboard.",
+    tech: ["Node.js", "Express.js", "MongoDB", "React.js", "Redux", "JWT"],
+    link: "https://github.com/SAIKOUNDINYAVELURI/UniqueCollections",
+  },
+  {
     title: "EventNexus",
     description:
-      "A full-stack platform that aggregates 500+ hackathons & internships using automated scraping with Puppeteer. Includes calendar integration, email alerts & real-time updates.",
+      "Full-stack platform that aggregates hackathons and internships using Puppeteer scraping, with MySQL storage, filtering, and calendar integration.",
     tech: ["Node.js", "Express.js", "MySQL", "Puppeteer"],
     link: "https://github.com/SAIKOUNDINYAVELURI/EventNexus",
   },
   {
     title: "Stock Price Prediction",
     description:
-      "Machine Learning pipeline using LSTM & XGBoost to predict Apple (AAPL) stock with 91% accuracy. Includes Streamlit dashboard for visualization.",
+      "Machine learning application using LSTM and XGBoost to predict stock prices with an interactive Streamlit dashboard and visualization.",
     tech: ["Python", "LSTM", "XGBoost", "Streamlit", "Pandas"],
     link: "https://github.com/SAIKOUNDINYAVELURI/Stock_Price_Prediction",
   },
   {
-    title: "Resume Parsing & Job Matching",
+    title: "Resume Parsing & Job Matching System",
     description:
-      "NLP-powered system with 95% accuracy for extracting resume content, analyzing skills and matching candidates with suitable roles.",
+      "NLP-based system that parses resumes, extracts skills and information, and recommends suitable job roles using spaCy and machine learning.",
     tech: ["Python", "spaCy", "Streamlit", "MySQL"],
     link: "https://github.com/SAIKOUNDINYAVELURI/Resume_Parsing_and_Candidate_Job_Matching_System",
   },
   {
-  title: "To-Do List Web App",
-  description:
-    "A responsive To-Do List application built with Node.js, Express.js, and MySQL. Supports adding, deleting, and managing tasks with a clean UI and backend API integration.",
-  tech: ["Node.js", "Express.js", "MySQL", "JavaScript"],
-  link: "https://github.com/SAIKOUNDINYAVELURI/To_Do_List",
-},
-{
-      title: "Air Writing",
-      description:
-        "An interactive project that lets you write in the air and capture text using hand gestures. Utilizes computer vision techniques for real-time gesture recognition.",
-      tech: ["Python", "OpenCV", "Mediapipe", "Machine Learning"],
-      link: "https://github.com/SAIKOUNDINYAVELURI/Air_writing.git",
-},
-{
-      title: "Data Professional Survey PowerBI Project",
-      description:
-        "A Power BI project analyzing survey data from data professionals to visualize trends, insights, and industry patterns using interactive dashboards and reports.",
-      tech: ["Power BI", "Data Analysis", "Visualization"],
-      link: "https://github.com/SAIKOUNDINYAVELURI/Data_Professional_Survey_PowerBi_Project.git",
-    },
+    title: "Smart Bookmark App",
+    description:
+      "Real-time bookmark management application with Google OAuth authentication, secure user-specific data access, search functionality, and Supabase integration.",
+    tech: ["Next.js", "Supabase", "PostgreSQL", "React", "Tailwind CSS"],
+    link: "https://smart-bookmark-app-nine-lake.vercel.app/",
+  },
+  {
+    title: "Contact Manager App",
+    description:
+      "Full-stack contact management application with authentication, protected routes, and CRUD operations using REST APIs.",
+    tech: ["Node.js", "Express.js", "MongoDB", "React.js", "JWT"],
+    link: "https://github.com/SAIKOUNDINYAVELURI/Contact_Manager_App",
+  },
+  {
+    title: "Air Writing",
+    description:
+      "Computer vision project that detects hand gestures and converts air writing into text using OpenCV and Mediapipe.",
+    tech: ["Python", "OpenCV", "Mediapipe", "Machine Learning"],
+    link: "https://github.com/SAIKOUNDINYAVELURI/Air_writing",
+  },
+  {
+    title: "To-Do List Web App",
+    description:
+      "Task management web application with backend API support for creating, deleting, and managing tasks using Node.js and MySQL.",
+    tech: ["Node.js", "Express.js", "MySQL", "JavaScript"],
+    link: "https://github.com/SAIKOUNDINYAVELURI/To_Do_List",
+  },
+  {
+    title: "Data Professional Survey PowerBI Project",
+    description:
+      "Power BI dashboard analyzing survey data to visualize trends, insights, and patterns among data professionals.",
+    tech: ["Power BI", "Data Analysis", "Visualization"],
+    link: "https://github.com/SAIKOUNDINYAVELURI/Data_Professional_Survey_PowerBi_Project",
+  },
 ];
+
 export const skillsData = [
   {
     category: "ProgrammingLanguages",

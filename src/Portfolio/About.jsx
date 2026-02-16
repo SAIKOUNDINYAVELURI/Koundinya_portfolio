@@ -6,7 +6,8 @@ const About = () => {
   const { personalInfo, education, certifications, achievements } = aboutData; // added achievements
 
   return (
-    <section id="about" className="section-wrapper">
+   <section id="about" className="section-wrapper">
+
       <h2 className="section-title">ABOUT ME</h2>
 
       <div className="about-grid">

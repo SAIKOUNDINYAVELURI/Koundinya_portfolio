@@ -11,6 +11,10 @@
   --glass: rgba(255, 255, 255, 0.08);
   --glow: rgba(78, 168, 255, 0.5);
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 * {
   box-sizing: border-box;
@@ -491,6 +495,10 @@ a {
 }
 
 /* Sections */
+section {
+  scroll-margin-top: 120px;
+}
+
 .section-wrapper {
   padding: 120px 20px;
   position: relative;
@@ -612,6 +620,7 @@ a {
   background: linear-gradient(135deg, var(--primary), var(--accent));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   opacity: 0;
   transition: opacity 0.6s ease;
@@ -1079,4 +1088,2009 @@ a {
 .project-button {
   position: relative;
   z-index: 2;
+}
+
+/* =============================== */
+/* ULTRA AESTHETIC MOBILE NAVBAR */
+/* =============================== */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+
+  background: rgba(78, 168, 255, 0.08);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(78,168,255,0.25);
+
+  box-shadow:
+    0 0 18px rgba(78,168,255,0.25),
+    inset 0 0 10px rgba(255,255,255,0.05);
+
+  cursor: pointer;
+  transition: all 0.4s ease;
+
+  position: relative;
+  z-index: 2000;
+}
+
+.hamburger:hover {
+  transform: scale(1.1) rotate(8deg);
+  box-shadow:
+    0 0 28px rgba(78,168,255,0.45),
+    inset 0 0 14px rgba(255,255,255,0.08);
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2.5px;
+  margin: 3px 0;
+  border-radius: 3px;
+
+  background: linear-gradient(90deg,var(--primary),var(--accent));
+
+  transition: all 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+/* Animate to X */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* =============================== */
+/* MOBILE NAVBAR CONTAINER */
+/* =============================== */
+
+@media (max-width: 768px) {
+
+  .navbar {
+
+    justify-content: space-between;
+    padding: 14px 18px;
+
+    border-radius: 18px;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(10,14,26,0.75),
+        rgba(10,14,26,0.45)
+      );
+
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+      0 0 25px rgba(78,168,255,0.18),
+      0 10px 40px rgba(0,0,0,0.55);
+
+    animation:
+      navbarDropMobile 1s ease forwards,
+      navbarFloat 6s ease-in-out infinite;
+
+  }
+
+}
+
+
+/* Floating effect */
+@keyframes navbarFloat {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-4px); }
+}
+
+@keyframes navbarDropMobile {
+  from {
+    opacity:0;
+    transform:translate(-50%,-40px);
+  }
+  to {
+    opacity:1;
+    transform:translate(-50%,0);
+  }
+}
+
+
+/* =============================== */
+/* MOBILE NAV LINKS PANEL */
+/* =============================== */
+
+@media (max-width:768px){
+
+  .hamburger {
+    display:flex;
+  }
+
+  .nav-links {
+
+    position:absolute;
+
+    top:80px;
+    left:50%;
+    transform:
+      translateX(-50%)
+      translateY(-30px)
+      scale(0.95);
+
+    flex-direction:column;
+
+    width:92%;
+
+    padding:28px;
+
+    border-radius:22px;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(10,14,26,0.95),
+        rgba(20,30,60,0.85)
+      );
+
+    webkit-backdrop-filter: blur(22px);
+
+    border:1px solid rgba(78,168,255,0.2);
+
+    box-shadow:
+      0 0 30px rgba(78,168,255,0.25),
+      inset 0 0 25px rgba(255,255,255,0.04);
+
+    opacity:0;
+    pointer-events:none;
+
+    transition: all 0.6s cubic-bezier(.16,1,.3,1);
+
+  }
+
+
+  .nav-links.open {
+
+    opacity:1;
+
+    transform:
+      translateX(-50%)
+      translateY(0)
+      scale(1);
+
+    pointer-events:auto;
+
+    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(22px);
+
+    animation:
+      mobileMenuReveal 0.7s cubic-bezier(.16,1,.3,1);
+
+  }
+
+}
+
+
+/* Reveal animation */
+@keyframes mobileMenuReveal {
+
+  0%{
+    opacity:0;
+    transform:
+      translateX(-50%)
+      translateY(-40px)
+      scale(0.9)
+      rotateX(20deg);
+  }
+
+  100%{
+    opacity:1;
+    transform:
+      translateX(-50%)
+      translateY(0)
+      scale(1)
+      rotateX(0);
+  }
+
+}
+
+
+/* =============================== */
+/* MOBILE NAV LINK ANIMATION */
+/* =============================== */
+
+@media(max-width:768px){
+
+  .nav-links li{
+
+    opacity:0;
+
+    transform:
+      translateY(20px)
+      scale(0.9);
+
+    animation:
+      mobileLinkFade 0.6s ease forwards;
+
+  }
+
+  .nav-links.open li:nth-child(1){animation-delay:.1s;}
+  .nav-links.open li:nth-child(2){animation-delay:.2s;}
+  .nav-links.open li:nth-child(3){animation-delay:.3s;}
+  .nav-links.open li:nth-child(4){animation-delay:.4s;}
+  .nav-links.open li:nth-child(5){animation-delay:.5s;}
+
+}
+
+
+@keyframes mobileLinkFade{
+
+  to{
+    opacity:1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =============================== */
+/* MOBILE BACKGROUND ENHANCEMENT */
+/* =============================== */
+
+@media(max-width:768px){
+
+  body::before{
+
+    animation:
+      gradientShiftMobile 25s ease infinite;
+
+    opacity:.9;
+
+    filter: blur(20px);
+
+  }
+
+  body::after{
+
+    animation:
+      gridFlowMobile 60s linear infinite;
+
+    opacity:.5;
+
+  }
+
+}
+
+
+@keyframes gradientShiftMobile{
+
+  0%,100%{
+    transform:
+      translate(0,0)
+      rotate(0deg)
+      scale(1);
+  }
+
+  50%{
+    transform:
+      translate(8%,5%)
+      rotate(180deg)
+      scale(1.2);
+  }
+
+}
+
+
+@keyframes gridFlowMobile{
+
+  0%{
+    transform:translate(0,0);
+  }
+
+  100%{
+    transform:translate(80px,80px);
+  }
+
+}
+/* =============================== */
+/* FIX: MOBILE NAVBAR SPACE ISSUE */
+/* =============================== */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+  }
+
+  /* Make nav-links overlay instead of occupying space */
+  .nav-links {
+
+    position: absolute;
+
+    top: 70px;
+    left: 50%;
+
+    transform: translateX(-50%) translateY(-20px);
+
+    width: 92%;
+
+    flex-direction: column;
+
+    padding: 0;            /* important */
+    margin: 0;             /* important */
+
+    height: 0;             /* key fix */
+    overflow: hidden;      /* key fix */
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: 
+      opacity 0.4s ease,
+      transform 0.4s ease,
+      height 0.4s ease,
+      padding 0.4s ease;
+
+  }
+
+  /* Open state */
+  .nav-links.open {
+
+    height: auto;
+
+    padding: 24px;
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform: translateX(-50%) translateY(0);
+
+    background: linear-gradient(
+      135deg,
+      rgba(10,14,26,0.95),
+      rgba(20,30,60,0.85)
+    );
+
+    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(22px);
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(78,168,255,0.2);
+
+    box-shadow:
+      0 0 30px rgba(78,168,255,0.25);
+
+  }
+
+}
+/* ===================================== */
+/* APPLE STYLE SHRINK NAVBAR */
+/* ===================================== */
+
+.navbar {
+
+  transition:
+    all 0.5s cubic-bezier(.16,1,.3,1),
+    backdrop-filter 0.5s ease,
+    box-shadow 0.5s ease;
+
+}
+
+
+/* Shrink state */
+.navbar-shrink {
+
+  padding: 8px 20px;
+
+  width: 88%;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(10,14,26,0.95),
+      rgba(10,14,26,0.75)
+    );
+
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  backdrop-filter: blur(28px) saturate(180%);
+
+  box-shadow:
+    0 0 35px rgba(78,168,255,0.25),
+    0 8px 40px rgba(0,0,0,0.65);
+
+}
+
+
+/* Shrink nav links */
+.navbar-shrink .nav-links a {
+
+  font-size: 0.95rem;
+
+  padding: 6px 10px;
+
+}
+
+
+/* Shrink hamburger */
+.navbar-shrink .hamburger {
+
+  width: 40px;
+  height: 40px;
+
+}
+
+
+/* Mobile shrink */
+@media (max-width:768px){
+
+  .navbar-shrink {
+
+    padding: 6px 14px;
+
+    width: 92%;
+
+    border-radius: 14px;
+
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+
+  }
+
+}
+/* ========================================= */
+/* ULTRA AESTHETIC MOBILE ABOUT OPTIMIZATION */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+  /* Section spacing */
+  #about.section-wrapper {
+
+    padding: 90px 16px 60px 16px;
+
+  }
+
+
+  /* Grid becomes vertical with smooth spacing */
+  .about-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+
+    max-width: 100%;
+
+  }
+
+
+  /* Card mobile enhancement */
+  .about-card {
+
+    padding: 22px 18px;
+
+    border-radius: 18px;
+
+    webkit-backdrop-filter: blur(14px);
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255,255,255,0.98),
+        rgba(245,248,255,0.92)
+      );
+
+    box-shadow:
+      0 6px 22px rgba(0,0,0,0.18),
+      0 0 12px rgba(78,168,255,0.15);
+
+    transform: translateY(0);
+
+    transition:
+      transform 0.4s ease,
+      box-shadow 0.4s ease;
+
+  }
+
+
+  /* Mobile hover becomes tap feedback */
+  .about-card:active {
+
+    transform: scale(0.98);
+
+    box-shadow:
+      0 4px 14px rgba(0,0,0,0.2);
+
+  }
+
+
+  /* Title mobile scaling */
+  .about-card-title {
+
+    font-size: 1.25rem;
+
+    margin-bottom: 12px;
+
+    letter-spacing: 0.3px;
+
+  }
+
+
+  /* List readability */
+  .about-list li {
+
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+
+    padding-left: 10px;
+
+  }
+
+
+  /* Year styling */
+  .about-year {
+
+    font-size: 0.85rem;
+
+    opacity: 0.75;
+
+    color: var(--primary-dark);
+
+  }
+
+}
+
+
+/* ========================================= */
+/* SMALL MOBILE DEVICES */
+/* ========================================= */
+
+@media (max-width: 480px) {
+
+  .about-card {
+
+    padding: 18px 14px;
+
+    border-radius: 16px;
+
+  }
+
+  .about-card-title {
+
+    font-size: 1.15rem;
+
+  }
+
+  .about-list li {
+
+    font-size: 0.9rem;
+
+  }
+
+}
+
+
+/* ========================================= */
+/* MOBILE ENTRY ANIMATION ENHANCEMENT */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+  .about-card {
+
+    animation: aboutMobileEntry 0.7s cubic-bezier(.16,1,.3,1) backwards;
+
+  }
+
+  .about-card:nth-child(1){animation-delay:.1s;}
+  .about-card:nth-child(2){animation-delay:.2s;}
+  .about-card:nth-child(3){animation-delay:.3s;}
+  .about-card:nth-child(4){animation-delay:.4s;}
+
+}
+
+
+@keyframes aboutMobileEntry {
+
+  from {
+
+    opacity:0;
+
+    transform:
+      translateY(40px)
+      scale(0.95);
+
+  }
+
+  to {
+
+    opacity:1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+  }
+
+}
+/* ================================= */
+/* SKILLS DROPDOWN SYSTEM */
+/* ================================= */
+
+.skills-section {
+
+  margin-bottom: 24px;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.02)
+    );
+
+  webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(78,168,255,0.2);
+
+  box-shadow:
+    0 0 20px rgba(78,168,255,0.1);
+
+}
+
+
+/* Heading */
+.skills-heading {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 18px 24px;
+
+  font-size: 1.3rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(78,168,255,0.1),
+      rgba(168,85,247,0.08)
+    );
+
+  transition: all 0.4s ease;
+
+}
+
+
+/* Hover */
+.skills-heading:hover {
+
+  transform: scale(1.02);
+
+  box-shadow:
+    0 0 25px rgba(78,168,255,0.3);
+
+}
+
+
+/* Arrow */
+.skills-arrow {
+
+  transition: transform 0.5s ease;
+
+}
+
+.skills-arrow.rotate {
+
+  transform: rotate(180deg);
+
+}
+
+
+/* Dropdown animation */
+.skills-dropdown {
+
+  max-height: 0;
+
+  overflow: hidden;
+
+  transition:
+    max-height 0.7s cubic-bezier(.16,1,.3,1),
+    opacity 0.4s ease;
+
+  opacity: 0;
+
+}
+
+.skills-dropdown.show {
+
+  max-height: 1000px;
+
+  opacity: 1;
+
+  padding: 20px;
+
+}
+
+
+/* ================================= */
+/* TOUCH RIPPLE EFFECT */
+/* ================================= */
+
+.skill-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 0;
+  height: 0;
+
+  background:
+    radial-gradient(circle,
+    rgba(78,168,255,0.4),
+    transparent);
+
+  border-radius: 50%;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  transition: width 0.6s ease,
+              height 0.6s ease;
+
+}
+
+
+/* Desktop hover */
+.skill-card:hover::before {
+
+  width: 200px;
+  height: 200px;
+
+}
+
+
+/* Mobile touch */
+.skill-card:active {
+
+  transform: scale(0.95);
+
+}
+
+.skill-card:active::before {
+
+  width: 250px;
+  height: 250px;
+
+}
+
+
+/* ================================= */
+/* MOBILE OPTIMIZATION */
+/* ================================= */
+
+@media(max-width:768px){
+
+  .skills-heading {
+
+    font-size: 1.1rem;
+
+    padding: 16px;
+
+  }
+
+  .skills-grid {
+
+    gap: 16px;
+
+  }
+
+  .skill-card {
+
+    padding: 14px 18px;
+
+    font-size: 0.95rem;
+
+  }
+
+}
+/* ========================================= */
+/* ULTRA PREMIUM MOBILE PROJECT CARDS */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+  .projects-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+
+    padding: 0 6px;
+
+  }
+
+
+  .project-card {
+
+    border-radius: 20px;
+
+    padding: 0;
+
+    transform: scale(1);
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255,255,255,0.98),
+        rgba(245,248,255,0.92)
+      );
+
+    box-shadow:
+      0 8px 28px rgba(0,0,0,0.25),
+      0 0 12px rgba(78,168,255,0.18);
+
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+
+  }
+
+
+  /* Tap interaction (mobile hover equivalent) */
+  .project-card:active {
+
+    transform: scale(0.97);
+
+    box-shadow:
+      0 4px 16px rgba(0,0,0,0.35);
+
+  }
+
+
+  .project-title {
+
+    font-size: 1.3rem;
+
+    margin-bottom: 10px;
+
+  }
+
+
+  .project-description {
+
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+
+    margin-bottom: 14px;
+
+  }
+
+
+  /* Tech chips mobile */
+  .tech-chip {
+
+    font-size: 0.8rem;
+
+    padding: 6px 12px;
+
+    margin: 4px;
+
+  }
+
+
+  /* Button mobile */
+  .project-button {
+
+    margin-top: 14px;
+
+    width: 100%;
+
+    border-radius: 14px;
+
+    font-weight: 700;
+
+    padding: 10px;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(78,168,255,0.08),
+        rgba(168,85,247,0.08)
+      );
+
+    webkit-backdrop-filter: blur(10px);
+
+    transition: all 0.3s ease;
+
+  }
+
+
+  /* Button touch effect */
+  .project-button:active {
+
+    transform: scale(0.96);
+
+    box-shadow:
+      0 0 18px rgba(78,168,255,0.35);
+
+  }
+
+}
+
+
+/* ========================================= */
+/* TOUCH RIPPLE EFFECT FOR MOBILE */
+/* ========================================= */
+
+.project-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 0;
+  height: 0;
+
+  border-radius: 50%;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(circle,
+      rgba(78,168,255,0.35),
+      transparent);
+
+  transition:
+    width 0.6s ease,
+    height 0.6s ease;
+
+}
+
+
+.project-card:active::before {
+
+  width: 320px;
+
+  height: 320px;
+
+}
+
+
+/* ========================================= */
+/* SMALL PHONE OPTIMIZATION */
+/* ========================================= */
+
+@media (max-width: 480px) {
+
+  .project-title {
+
+    font-size: 1.2rem;
+
+  }
+
+  .project-description {
+
+    font-size: 0.9rem;
+
+  }
+
+  .tech-chip {
+
+    font-size: 0.75rem;
+
+    padding: 5px 10px;
+
+  }
+
+}
+/* ========================================= */
+/* ULTRA PREMIUM MOBILE CONTACT OPTIMIZATION */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+  .contact-container {
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 0 10px;
+
+  }
+
+
+  .contact-icon {
+
+    width: 100%;
+
+    max-width: 320px;
+
+    padding: 20px 18px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: flex-start;
+
+    align-items: center;
+
+    gap: 16px;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255,255,255,0.98),
+        rgba(245,248,255,0.92)
+      );
+
+    box-shadow:
+      0 8px 25px rgba(0,0,0,0.25),
+      0 0 12px rgba(78,168,255,0.18);
+
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+
+  }
+
+
+  /* Mobile tap interaction */
+  .contact-icon:active {
+
+    transform: scale(0.96);
+
+    box-shadow:
+      0 4px 14px rgba(0,0,0,0.35);
+
+  }
+
+
+  .contact-icon img {
+
+    width: 42px;
+
+    height: 42px;
+
+  }
+
+
+  .contact-icon span {
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+  }
+
+}
+
+
+/* ========================================= */
+/* TOUCH RIPPLE EFFECT */
+/* ========================================= */
+
+.contact-icon::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 0;
+  height: 0;
+
+  border-radius: 50%;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(circle,
+      rgba(78,168,255,0.35),
+      transparent);
+
+  transition:
+    width 0.6s ease,
+    height 0.6s ease;
+
+}
+
+
+.contact-icon:active::before {
+
+  width: 260px;
+
+  height: 260px;
+
+}
+
+
+/* ========================================= */
+/* SMALL PHONE OPTIMIZATION */
+/* ========================================= */
+
+@media (max-width: 480px) {
+
+  .contact-icon {
+
+    padding: 18px 16px;
+
+    border-radius: 16px;
+
+  }
+
+  .contact-icon img {
+
+    width: 38px;
+    height: 38px;
+
+  }
+
+  .contact-icon span {
+
+    font-size: 0.95rem;
+
+  }
+
+}
+
+
+/* ========================================= */
+/* PREMIUM ENTRY ANIMATION FOR MOBILE */
+/* ========================================= */
+
+@media (max-width:768px){
+
+  .contact-icon {
+
+    animation: contactMobileEntry 0.7s cubic-bezier(.16,1,.3,1) backwards;
+
+  }
+
+  .contact-icon:nth-child(1){animation-delay:.1s;}
+  .contact-icon:nth-child(2){animation-delay:.2s;}
+  .contact-icon:nth-child(3){animation-delay:.3s;}
+
+}
+
+
+@keyframes contactMobileEntry {
+
+  from {
+
+    opacity:0;
+
+    transform:
+      translateY(40px)
+      scale(0.9);
+
+  }
+
+  to {
+
+    opacity:1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+  }
+
+}
+/* ================================= */
+/* CONTACT MODAL */
+/* ================================= */
+
+.contact-modal-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0,0,0,0.6);
+
+  webkit-backdrop-filter: blur(10px);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 3000;
+
+  animation: modalFade 0.3s ease;
+
+}
+
+@keyframes modalFade {
+
+  from { opacity: 0; }
+  to { opacity: 1; }
+
+}
+
+
+.contact-modal {
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #f5f8fb
+    );
+
+  padding: 24px;
+
+  border-radius: 18px;
+
+  text-align: center;
+
+  width: 90%;
+
+  max-width: 320px;
+
+  box-shadow:
+    0 15px 50px rgba(0,0,0,0.4);
+
+  animation: modalSlide 0.4s cubic-bezier(.16,1,.3,1);
+  color: black;
+
+}
+
+@keyframes modalSlide {
+
+  from {
+
+    transform: translateY(40px) scale(0.9);
+    opacity: 0;
+
+  }
+
+  to {
+
+    transform: translateY(0) scale(1);
+    opacity: 1;
+
+  }
+
+}
+
+
+.contact-modal-buttons {
+
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 18px;
+
+  justify-content: center;
+
+}
+
+
+.contact-open-btn {
+
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--accent-purple)
+  );
+
+  border: none;
+
+  color: black;
+
+  padding: 10px 18px;
+
+  border-radius: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+
+}
+
+.contact-open-btn:active {
+
+  transform: scale(0.95);
+
+}
+
+
+.contact-cancel-btn {
+
+  background: transparent;
+
+  border: 1px solid #ccc;
+
+  padding: 10px 18px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+}
+/* ======================================= */
+/* ULTRA AESTHETIC MOBILE HERO OPTIMIZED */
+/* ======================================= */
+
+@media (max-width: 768px) {
+
+  .hero-wrapper {
+
+    padding-top: 130px;
+    padding-bottom: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+  }
+
+
+  /* Title mobile scaling */
+  .hero-title {
+
+    font-size: 2.3rem;
+
+    line-height: 1.25;
+
+    animation:
+      titleGlowMobile 4s ease-in-out infinite,
+      titleFloatMobile 6s ease-in-out infinite;
+
+  }
+
+
+  /* Subtitle scaling */
+  .hero-subtitle {
+
+    font-size: 1.2rem;
+
+    margin-top: 10px;
+
+  }
+
+
+  /* Description spacing */
+  .hero-description {
+
+    font-size: 0.95rem;
+
+    margin-top: 18px;
+
+    line-height: 1.6;
+
+    padding: 0 4px;
+
+  }
+
+
+  /* ICON CONTAINER */
+  .hero-icons {
+
+    margin-top: 22px;
+
+    gap: 18px;
+
+  }
+
+
+  /* ICON MOBILE ANIMATION */
+  .hero-icon {
+
+    font-size: 2.2rem;
+
+    animation:
+      iconFloatMobile 4s ease-in-out infinite;
+
+    transition:
+      transform 0.25s ease,
+      filter 0.25s ease;
+
+  }
+
+
+  /* Touch feedback same as hover */
+  .hero-icon:active {
+
+    transform: scale(1.35) rotate(12deg);
+
+    filter: drop-shadow(0 0 18px var(--glow));
+
+  }
+
+
+  /* Buttons mobile */
+  .hero-buttons {
+
+    margin-top: 26px;
+
+    gap: 14px;
+
+  }
+
+
+  .primary-btn,
+  .resume-btn {
+
+    padding: 12px 22px !important;
+
+    font-size: 0.95rem !important;
+
+    border-radius: 28px !important;
+
+  }
+
+
+  /* Touch animation */
+  .primary-btn:active,
+  .resume-btn:active {
+
+    transform: scale(0.96);
+
+  }
+
+}
+
+
+/* ======================================= */
+/* MOBILE FLOATING ANIMATIONS */
+/* ======================================= */
+
+@keyframes iconFloatMobile {
+
+  0%,100% {
+
+    transform: translateY(0px);
+
+  }
+
+  50% {
+
+    transform: translateY(-6px);
+
+  }
+
+}
+
+
+@keyframes titleFloatMobile {
+
+  0%,100% {
+
+    transform: translateY(0);
+
+  }
+
+  50% {
+
+    transform: translateY(-4px);
+
+  }
+
+}
+
+
+@keyframes titleGlowMobile {
+
+  0%,100% {
+
+    filter: drop-shadow(0 0 15px rgba(78,168,255,0.4));
+
+  }
+
+  50% {
+
+    filter: drop-shadow(0 0 25px rgba(78,168,255,0.7));
+
+  }
+
+}
+
+
+/* ======================================= */
+/* PERFORMANCE OPTIMIZATION */
+/* ======================================= */
+
+.hero-title,
+.hero-icon,
+.primary-btn,
+.resume-btn {
+
+  will-change: transform, filter;
+
+}
+
+
+/* ======================================= */
+/* SMALL PHONES */
+/* ======================================= */
+
+@media (max-width: 480px) {
+
+  .hero-title {
+
+    font-size: 1.9rem;
+
+  }
+
+  .hero-subtitle {
+
+    font-size: 1.05rem;
+
+  }
+
+  .hero-icon {
+
+    font-size: 2rem;
+
+  }
+
+}
+/* ======================================= */
+/* NAVBAR STRUCTURE */
+/* ======================================= */
+
+.navbar {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+}
+
+
+.navbar-left {
+
+  display: flex;
+
+  align-items: center;
+
+}
+
+
+.navbar-right {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+}
+
+
+/* ======================================= */
+/* NAME STYLING */
+/* ======================================= */
+
+.navbar-name {
+
+  font-size: 1.25rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    var(--primary),
+    var(--accent-purple)
+  );
+
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  position: relative;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease;
+
+}
+
+
+/* UNDERLINE ANIMATION */
+
+.navbar-name::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -6px;
+
+  width: 0%;
+
+  height: 3px;
+
+  border-radius: 4px;
+
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--accent),
+    var(--accent-purple)
+  );
+
+  transition: width 0.4s cubic-bezier(.16,1,.3,1);
+
+}
+
+
+/* Hover (PC) */
+.navbar-name:hover::after {
+
+  width: 100%;
+
+}
+
+
+/* Tap (Mobile) */
+.navbar-name:active::after {
+
+  width: 100%;
+
+}
+
+
+/* Hover lift effect */
+.navbar-name:hover {
+
+  transform: translateY(-2px);
+
+}
+
+
+/* ======================================= */
+/* MOBILE OPTIMIZATION */
+/* ======================================= */
+
+@media (max-width:768px){
+
+  .navbar-name{
+
+    font-size: 1rem;
+
+  }
+
+}
+/* ================================= */
+/* PREMIUM NAVBAR STRUCTURE */
+/* ================================= */
+
+.navbar {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+}
+
+
+/* Left */
+.navbar-left {
+
+  display: flex;
+
+  align-items: center;
+
+}
+
+
+/* Right */
+.navbar-right {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+
+}
+
+
+/* ================================= */
+/* NAME STYLING */
+/* ================================= */
+
+.navbar-name {
+
+  font-size: 1.3rem;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    var(--primary),
+    var(--accent-purple)
+  );
+
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  position: relative;
+
+  transition: transform 0.3s ease;
+
+}
+
+
+/* underline animation */
+.navbar-name::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -6px;
+
+  width: 0%;
+
+  height: 3px;
+
+  border-radius: 4px;
+
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--accent),
+    var(--accent-purple)
+  );
+
+  transition: width 0.4s cubic-bezier(.16,1,.3,1);
+
+}
+
+
+/* hover */
+.navbar-name:hover::after {
+
+  width: 100%;
+
+}
+
+
+.navbar-name:hover {
+
+  transform: translateY(-2px);
+
+}
+
+
+/* ================================= */
+/* NAV LINKS */
+/* ================================= */
+
+.nav-links {
+
+  display: flex;
+
+  gap: 32px;
+
+}
+
+
+.nav-links a {
+
+  cursor: pointer;
+
+}
+
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
+
+@media(max-width:768px){
+
+  .nav-links {
+
+    position: absolute;
+
+    top: 70px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    flex-direction: column;
+
+    width: 92%;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+  }
+
+}
+
+
+/* ================================= */
+/* FAST SMOOTH SCROLL OFFSET */
+/* ================================= */
+
+section {
+
+  scroll-margin-top: 120px;
+
+}
+
+@media(max-width:768px){
+
+  section {
+
+    scroll-margin-top: 100px;
+
+  }
+
+}
+/* ================================= */
+/* ULTRA AESTHETIC SCROLL PROGRESS BAR */
+/* ================================= */
+
+.scroll-progress-container {
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  z-index: 3000;
+
+  background: transparent;
+
+}
+
+
+/* Actual progress line */
+.scroll-progress-bar {
+
+  height: 100%;
+
+  width: 0%;
+
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--accent),
+    var(--accent-purple),
+    var(--primary)
+  );
+
+  background-size: 200% auto;
+
+  box-shadow:
+    0 0 10px var(--primary),
+    0 0 20px var(--accent),
+    0 0 30px var(--accent-purple);
+
+  border-radius: 0 4px 4px 0;
+
+  transition: width 0.15s linear;
+
+  animation: progressGlow 4s linear infinite;
+
+}
+
+
+/* Moving glow animation */
+@keyframes progressGlow {
+
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+
+}
+.reveal {
+
+  opacity: 0;
+
+  transform: translateY(60px);
+
+  transition:
+    opacity 0.9s cubic-bezier(.16,1,.3,1),
+    transform 0.9s cubic-bezier(.16,1,.3,1);
+
+}
+
+.reveal.active {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition:
+    opacity 0.9s cubic-bezier(.16,1,.3,1),
+    transform 0.9s cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(80px) scale(0.96);
+  transition:
+    opacity 1s cubic-bezier(.16,1,.3,1),
+    transform 1s cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }

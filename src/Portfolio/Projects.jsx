@@ -7,6 +7,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="section-wrapper">
+
       <h2 className="section-title">PROJECTS</h2>
 
       <Box className="projects-grid">
