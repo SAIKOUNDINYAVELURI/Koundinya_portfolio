@@ -1,6 +1,10 @@
 export const heroData = {
   name: "Sai Koundinya Veluri",
-  role: "Full Stack Developer | Data Science Enthusiast",
+ role: [
+    "Full Stack Developer",
+    "Data Science Enthusiast",
+  ],
+
   description:
     "I craft scalable, intelligent full-stack and AI-driven applications using leading-edge technologies — transforming complex data into high-performance, real-world solutions.",
      resume: "https://drive.google.com/file/d/1K17j_frPmSsVYTadEad2HSbZDuVa5kW6/view?usp=drive_link", 
